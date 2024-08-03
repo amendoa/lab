@@ -9,4 +9,4 @@ jobs:
     name: Build and Publish
     runs-on: ubuntu-latest
     steps:
-      - echo "hello"
+      - run: echo "hello"

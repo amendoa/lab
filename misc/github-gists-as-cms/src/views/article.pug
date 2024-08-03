@@ -1,0 +1,11 @@
+extends layouts/default
+
+block vars
+  - var title = `${content.metadata.title} | yoursite.com`
+  - var gistCssId = content.cssId
+
+block main
+  | !{ content.plainHtml }
+
+  section
+    | comments section

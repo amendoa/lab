@@ -1,0 +1,28 @@
+block vars
+
+doctype html
+html(lang='en')
+  head
+    title #{ title }
+    meta(
+      name='viewport',
+      content='width=device-width, initial-scale=1, shrink-to-fit=no'
+    )
+    meta(name='description' content='Description here')
+
+    if gistCssId
+      link(
+        rel='stylesheet',
+        href=`https://github.githubassets.com/assets/gist-embed-${gistCssId}.css`
+      )
+
+    style.
+      main {
+        margin: auto;
+        max-width: 768px;
+      }
+
+  body
+    include ../includes/header
+    main
+      block main

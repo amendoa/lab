@@ -1,0 +1,17 @@
+extends layouts/default
+
+block vars
+  - var title = 'Articles | yoursite.com'
+
+block main
+  header
+    h1
+      | All Articles
+  div
+    each article in articles
+      a(href=`/${article.slug}`)
+        article
+          h2
+            | #{ article.metadata.title }
+          p
+            | #{ article.metadata.preview }

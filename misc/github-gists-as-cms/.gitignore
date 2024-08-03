@@ -1,0 +1,9 @@
+# Node.js
+node_modules
+
+# ENV
+.env
+
+# Build
+dist
+tmp

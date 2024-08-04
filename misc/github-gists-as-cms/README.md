@@ -1,4 +1,5 @@
-# Use Github Gists as CMS
+# Use Github Gists as CMS [[Demo :globe_with_meridians:](https://amendoa.dev/lab/github-gists-as-cms)]
+
 
 You can create multiple files in a [Gist](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists). The idea is to use these files to generate static pages for a website.
 

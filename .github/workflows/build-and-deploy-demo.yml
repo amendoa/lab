@@ -1,0 +1,50 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Build and deploy demo
+jobs:
+  build-github-gists-as-cms-demo:
+    name: Build Github Gists as CMS demo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Install dependencies
+        working-directory: ./misc/github-gists-as-cms
+        run: pnpm install
+
+      - name: Build
+        working-directory: ./misc/github-gists-as-cms
+        env:
+          WEBPACK_GIST_ID: facbd5afba99caa85c7e139e6ab1ad76
+          WEBPACK_TMP_DIR: tmp
+          WEBPACK_GITHUB_USERNAME: amendoa
+        run: pnpm build
+
+      - name: Upload build dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-gists-as-cms
+          path: ./misc/github-gists-as-cms/dist
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    needs:
+      - build-github-gists-as-cms-demo
+    steps:
+      - name: Download github-gists-as-cms dist
+        uses: actions/download-artifact@v4
+        with:
+          name: github-gists-as-cms
+          path: ./public/github-gists-as-cms
+
+      - run: ls public

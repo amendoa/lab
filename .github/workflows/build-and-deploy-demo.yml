@@ -35,11 +35,25 @@ jobs:
           name: github-gists-as-cms
           path: ./misc/github-gists-as-cms/dist
 
+  build-core-demo:
+    name: Build Core Demo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload build dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: core-demo
+          path: ./core/demo
+
   publish:
     name: Publish
     runs-on: ubuntu-latest
     needs:
       - build-github-gists-as-cms-demo
+      - build-core-demo
     steps:
       - name: Download github-gists-as-cms dist
         uses: actions/download-artifact@v4
@@ -47,4 +61,18 @@ jobs:
           name: github-gists-as-cms
           path: ./public/github-gists-as-cms
 
+      - name: Download core-demo dist
+        uses: actions/download-artifact@v4
+        with:
+          name: core-demo
+          path: ./public
+
       - run: ls public
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

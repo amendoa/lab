@@ -70,11 +70,24 @@ jobs:
           name: github-gists-as-cms
           path: ./public/github-gists-as-cms
 
+      # - name: Copy files to public
+      #   run: |
+      #     cp --recursive --dereference --no-preserve=mode,ownership ./core-demo ./public
+
+      #     ls ./public
+      #     # cp -R ./github-gists-as-cms ./public/github-gists-as-cms
+
       - name: Upload artifacts to Github Pages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./public
+
+      # - name: Upload artifacts to Github Pages
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: github-pages
+      #     path: ./public
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4

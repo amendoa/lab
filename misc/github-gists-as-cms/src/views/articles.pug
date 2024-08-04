@@ -9,7 +9,7 @@ block main
       | All Articles
   div
     each article in articles
-      a(href=`/${article.slug}`)
+      a(href=`./${article.slug}`)
         article
           h2
             | #{ article.metadata.title }

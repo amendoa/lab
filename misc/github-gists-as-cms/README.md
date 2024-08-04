@@ -1,6 +1,5 @@
 # Use Github Gists as CMS [[Demo :globe_with_meridians:](https://amendoa.dev/lab/github-gists-as-cms)]
 
-
 You can create multiple files in a [Gist](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists). The idea is to use these files to generate static pages for a website.
 
 # How it works?
@@ -20,3 +19,13 @@ So, the process is:
 1. Fetch embed src script
 2. Capture content using Regex
 3. Inject the content in a HTMl using some bundler ou task runner
+
+# How to run?
+
+In the main root, run:
+
+```bash
+cp .env.example .env
+pnpm install
+pnpm dev # or pnpm build
+```

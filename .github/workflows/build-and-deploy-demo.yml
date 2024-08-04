@@ -55,22 +55,23 @@ jobs:
       - build-github-gists-as-cms-demo
       - build-core-demo
     steps:
-      - name: Download github-gists-as-cms dist
-        uses: actions/download-artifact@v4
-        with:
-          name: github-gists-as-cms
-          path: ./public/github-gists-as-cms
-
       - name: Download core-demo dist
         uses: actions/download-artifact@v4
         with:
           name: core-demo
           path: ./public
 
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Download github-gists-as-cms dist
+        uses: actions/download-artifact@v4
         with:
-          target_branch: gh-pages
-          build_dir: public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: github-gists-as-cms
+          path: ./public/github-gists-as-cms
+
+      - name: Upload artifacts to Github Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -67,8 +67,6 @@ jobs:
           name: core-demo
           path: ./public
 
-      - run: ls public
-
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:

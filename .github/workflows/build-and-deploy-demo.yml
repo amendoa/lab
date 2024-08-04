@@ -71,7 +71,7 @@ jobs:
           path: ./public/github-gists-as-cms
 
       - name: Upload artifacts to Github Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: ./public

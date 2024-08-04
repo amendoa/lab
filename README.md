@@ -8,4 +8,4 @@ I push to this repository all my proof of concepts. They're not production ready
 
 ## MISC
 
-- [Github Gists as CMS](./misc/github-gists-as-cms)
+- [Github Gists as CMS](./misc/github-gists-as-cms) - [[Demo :globe_with_meridians:](https://github.com/amendoa/lab)]

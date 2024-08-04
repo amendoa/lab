@@ -29,3 +29,10 @@ cp .env.example .env
 pnpm install
 pnpm dev # or pnpm build
 ```
+
+# Links
+
+| Desc      | Link                                                             |
+| --------- | ---------------------------------------------------------------- |
+| Used Gist | https://gist.github.com/amendoa/facbd5afba99caa85c7e139e6ab1ad76 |
+| Demo      | https://amendoa.dev/lab/github-gists-as-cms                      |
